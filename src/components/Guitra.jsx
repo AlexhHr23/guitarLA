@@ -1,14 +1,14 @@
 
 
-export const Guitar = ({guitar}) =>{
+export const Guitar = ({guitar, addToCart}) =>{
 
     const {id, name, image, description, price} = guitar;
 
     const handleClick = (guitar) => {
-        console.log('HOla desde guitar', guitar);
+        setCart([guitar ])
     }
  
-    return (
+    return ( 
         <div className ="col-md-6 col-lg-4 my-4 row align-items-center">
         <div className="col-4">
             <img className="img-fluid" src={`/img/${image}.jpg`}  alt="imagen guitarra" />
@@ -20,7 +20,7 @@ export const Guitar = ({guitar}) =>{
             <button 
                 type="button"
                 className="btn btn-dark w-100"
-                onClick={() =>  handleClick(guitar)}
+                onClick={() =>  addToCart(guitar)}
             >Agregar al Carrito</button>
         </div> 
     </div>
