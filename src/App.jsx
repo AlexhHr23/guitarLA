@@ -15,6 +15,10 @@ function App() {
   const MAX_ITEMS = 5;
   const MIN_ITEMS = 1; 
 
+  useEffect(( ) => {
+    localStorage.setItem('cart', JSON.stringify(cart))
+  }, [cart]) 
+
 
 
   const addTocart = (item) => { 
@@ -25,14 +29,13 @@ function App() {
     if (itemExist >= 0) {
       if(cart[itemExist].quantity >= MAX_ITEMS) return
       const updatedCart = [...cart]
-      updatedCart[itemExist].quantity++;
+      updatedCart[itemExist].quantity++; 
       setCart(updatedCart); 
     } else {
       console.log('NO existe... Agregando ');
       item.quantity = 1 
       setCart(prevCart => [...prevCart, item])
     }   
-
 
   }
 
@@ -69,6 +72,9 @@ function App() {
   const clearCart = () => {
     setCart([])
   }
+
+
+    
 
   return (
     <>
