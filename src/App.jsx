@@ -7,9 +7,13 @@ import './App.css'
 function App() {
 
 
-
+  const initialCart =  () => {
+    const localCart = localStorage.getItem('cart')
+    return localCart ? JSON.parse(localCart) : []
+  }
+ 
   const [data, setData] = useState(db)
-  const [cart, setCart] = useState([])
+  const [cart, setCart] = useState(initialCart)
 
 
   const MAX_ITEMS = 5;
